@@ -5,6 +5,6 @@
     "@std/assert": "jsr:@std/assert@1",
     "@std/fs": "jsr:@std/fs@^1.0.23",
     "@std/path": "jsr:@std/path@^1.1.4",
-    "%SRC%/": "./packs/data/modular_mc/src/"
+    "@src/": "./packs/data/modular_mc/src/"
   }
 }
