@@ -1,7 +1,7 @@
 {
   "imports": {
-    "@minecraft/server": "npm:@minecraft/server@^2.6.0",
-    "@minecraft/server-ui": "npm:@minecraft/server-ui@^2.0.0",
+    "@minecraft/server": "npm:[[[MC_SERVER_VERSION_NPM]]]",
+    "@minecraft/server-ui": "npm:[[[MC_SERVER_VERSION_UI_NPM]]]",
     "@std/assert": "jsr:@std/assert@1",
     "@std/fs": "jsr:@std/fs@^1.0.23",
     "@std/path": "jsr:@std/path@^1.1.4",
