@@ -23,6 +23,22 @@ if ([string]::IsNullOrWhiteSpace($mcServerUiVersion)) {
     exit
 }
 
+# Check required tools are available
+if (-not (Get-Command npm -ErrorAction SilentlyContinue)) {
+    Write-Warning "npm is not installed or not on PATH. Please install Node.js and try again."
+    exit
+}
+
+if (-not (Get-Command deno -ErrorAction SilentlyContinue)) {
+    Write-Warning "deno is not installed or not on PATH. Please install Deno and try again."
+    exit
+}
+
+if (-not (Get-Command regolith -ErrorAction SilentlyContinue)) {
+    Write-Warning "regolith is not installed or not on PATH. Please install Regolith and try again."
+    exit
+}
+
 # Find the best matching npm version for a @minecraft package
 # Priority: stable (x.y.z) > rc (x.y.z-rc.N) > beta (x.y.z-beta.N)
 function Get-MinecraftPackageVersion {
@@ -108,8 +124,9 @@ foreach ($file in $files) {
         $content = $content.Replace("[[[MC_SERVER_VERSION_NPM]]]", $mcServerNpmVersion)
         $content = $content.Replace("[[[MC_SERVER_UI_VERSION_NPM]]]", $mcServerUiNpmVersion)
         
-        # Save file with UTF-8 Nobom encoding
-        [System.IO.File]::WriteAllText((Resolve-Path $file).Path, $content, [System.Text.Encoding]::UTF8)
+        # Save file with UTF-8 NoBOM encoding
+        $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+        [System.IO.File]::WriteAllText((Resolve-Path $file).Path, $content, $utf8NoBom)
         
         Write-Host "Updated: $file" -ForegroundColor Green
     } else {
@@ -117,8 +134,23 @@ foreach ($file in $files) {
     }
 }
 
+Write-Host "Running deno install ..." -ForegroundColor Cyan
+deno install
+if ($LASTEXITCODE -ne 0) {
+    Write-Warning "deno install failed."
+    exit
+}
+Write-Host "deno install complete." -ForegroundColor Green
+
+Write-Host "Running regolith install ..." -ForegroundColor Cyan
+regolith install-all
+if ($LASTEXITCODE -ne 0) {
+    Write-Warning "regolith install failed."
+    exit
+}
+Write-Host "regolith install complete." -ForegroundColor Green
+
 Write-Host "Please select a pack_icon.png file in the dialog..." -ForegroundColor Cyan
-Add-Type -AssemblyName System.Windows.Forms
 $owner = New-Object System.Windows.Forms.Form
 $owner.TopMost = $true
 $owner.WindowState = [System.Windows.Forms.FormWindowState]::Minimized
