@@ -1,0 +1,21 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "::`${id}`",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "::`textures/entity/${resource.texture.split('/').pop().split('.')[0]}`"
+      },
+      "geometry": {
+        "default": "::`${resource.geometry}`"
+      },
+      "render_controllers": ["controller.render.default"],
+      "spawn_egg": {
+        "texture": "::`${id}_spawn_egg`"
+      }
+    }
+  }
+}

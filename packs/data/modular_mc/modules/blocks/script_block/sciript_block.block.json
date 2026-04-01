@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "modularmc:script_block",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "modularmc:script_block",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#000000"
+    }
+  }
+}

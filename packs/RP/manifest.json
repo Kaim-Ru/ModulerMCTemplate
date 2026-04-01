@@ -1,0 +1,27 @@
+{
+  "format_version": 3,
+  "header": {
+    "name": "[[[ADDON_NAME]]]",
+    "description": "[[[ADDON_NAME]]] RP",
+    "uuid": "[[[UUID4]]]",
+    "version": "1.0.0",
+    "min_engine_version": "1.26.0"
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "[[[UUID5]]]",
+      "version": "1.0.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["[[[AUTHOR]]]"],
+    "product_type": "addon"
+  },
+  "dependencies": [
+    {
+      "uuid": "[[[UUID1]]]",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+entity.{ts: id :}.name={ts: name :}
+{ts: resource ? `item.spawn_egg.entity.${id}.name=Spawn ${name}` : '' :}

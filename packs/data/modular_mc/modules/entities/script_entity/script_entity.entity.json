@@ -1,0 +1,21 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "modularmc:script_entity",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/script_entity"
+      },
+      "geometry": {
+        "default": "geometry.script_entity"
+      },
+      "render_controllers": ["controller.render.default"],
+      "spawn_egg": {
+        "texture": "modularmc:script_entity_spawn_egg"
+      }
+    }
+  }
+}

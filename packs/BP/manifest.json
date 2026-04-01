@@ -1,0 +1,42 @@
+{
+  "format_version": 3,
+  "header": {
+    "name": "[[[ADDON_NAME]]]",
+    "description": "[[[ADDON_NAME]]] BP",
+    "uuid": "[[[UUID1]]]",
+    "version": "1.0.0",
+    "min_engine_version": "1.26.0"
+  },
+  "modules": [
+    {
+      "version": "1.0.0",
+      "type": "data",
+      "uuid": "[[[UUID2]]]"
+    },
+    {
+      "version": "1.0.0",
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "[[[UUID3]]]"
+    }
+  ],
+  "metadata": {
+    "authors": ["[[[AUTHOR]]]"],
+    "product_type": "addon"
+  },
+  "dependencies": [
+    {
+      "uuid": "[[[UUID4]]]",
+      "version": "1.0.0"
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.6.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    }
+  ]
+}

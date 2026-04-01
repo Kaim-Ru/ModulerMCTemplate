@@ -1,0 +1,7 @@
+{
+  "deno.enable": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://raw.githubusercontent.com/denoland/": true,
+    "https://raw.githubusercontent.com/Bedrock-OSS": true
+  }
+}
