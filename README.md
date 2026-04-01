@@ -18,7 +18,7 @@ RegolithフィルターのModularMCのテンプレートです。
 - regolith
 - deno
 
-以下を実行し、質問にいくつか答え、pack_icon用の画像指定後manifestやdeno install,regolith install-allなどが完了します。
+以下を実行し、質問にいくつか答え、pack_icon用の画像指定後、manifestやdeno install,regolith install-allなどのセットアップが完了します。
 ```powershell
 .\setup.ps1
 ```
