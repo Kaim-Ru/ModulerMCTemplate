@@ -31,8 +31,7 @@
               "esbuild": {
                 "buildPath": "debug/main.js",
                 "settings": {
-                  "sourcemap": true,
-                  "minify": true
+                  "sourcemap": true
                 }
               }
             }
