@@ -5,6 +5,9 @@ export const MAP = entityObjects.flatMap((entityObject) => {
   const defaultEntityObject = {
     format_version: "1.16.100",
     name: entityIdWithoutNamespace,
+    is_spawnable: entityObject.resource ? true : false,
+    is_summonable: true,
+    is_experimental: false,
     resource: {
       texture: `textures/${entityIdWithoutNamespace}.png`,
       geometry: `geometry.${entityIdWithoutNamespace}`,

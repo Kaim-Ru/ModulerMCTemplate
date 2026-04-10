@@ -1,0 +1,14 @@
+{
+  "format_version": "::format_version_item",
+  "minecraft:item": {
+    "description": {
+      "identifier": "::`${id}`",
+      "menu_category": {
+        "category": "::`${category}`",
+        "group": "::group ? `${group}` : undefined",
+        "is_hidden_in_commands": "::is_hidden_in_commands"
+      }
+    },
+    "components": "::components"
+  }
+}

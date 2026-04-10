@@ -1,0 +1,9 @@
+{
+  "format_version": "::format_version_block",
+  "minecraft:block": {
+    "description": {
+      "identifier": "::`${id}`"
+    },
+    "components": "::components"
+  }
+}

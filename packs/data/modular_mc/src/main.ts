@@ -1,4 +1,4 @@
-import mc from "@minecraft/server";
+import * as mc from "@minecraft/server";
 import { test } from "@src/module.ts";
 
 mc.world.afterEvents.worldLoad.subscribe(() => {

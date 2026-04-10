@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.70",
+  "minecraft:block": {
+    "description": {
+      "identifier": "modularmc:script_3ditem"
+    },
+    "components": {
+      "minecraft:geometry": "geometry.script_3ditem",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "modularmc:script_3ditem",
+          "render_method": "alpha_test",
+          "ambient_occlusion": false,
+          "face_dimming": false
+        }
+      }
+    }
+  }
+}

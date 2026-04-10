@@ -2,7 +2,10 @@
   "format_version": "::format_version",
   "minecraft:entity": {
     "description": {
-      "identifier": "::`${id}`"
+      "identifier": "::`${id}`",
+      "is_spawnable": "::is_spawnable",
+      "is_summonable": "::is_summonable",
+      "is_experimental": "::is_experimental"
     },
     "components": "::components"
   }

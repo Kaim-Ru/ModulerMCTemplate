@@ -45,13 +45,22 @@ function Get-MinecraftPackageVersion {
     param([string]$PackageName, [string]$Version)
 
     Write-Host "Fetching versions for $PackageName ..." -ForegroundColor Cyan
-    $allVersionsJson = npm view $PackageName versions --json 2>&1
-    if ($LASTEXITCODE -ne 0) {
-        Write-Warning "Failed to fetch versions for ${PackageName}: $allVersionsJson"
-        return $null
-    }
+    
+    # Use temporary file to avoid PowerShell string handling issues
+    $tempFile = [System.IO.Path]::GetTempFileName()
+    try {
+        npm view $PackageName versions --json > $tempFile 2>$null
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "Failed to fetch versions for ${PackageName}"
+            return $null
+        }
 
-    $allVersions = $allVersionsJson | ConvertFrom-Json
+        $allVersionsJson = Get-Content -Path $tempFile -Raw
+        $allVersions = $allVersionsJson | ConvertFrom-Json
+    }
+    finally {
+        Remove-Item -Path $tempFile -Force -ErrorAction SilentlyContinue
+    }
 
     $matching = @($allVersions | Where-Object { $_ -eq $Version -or $_ -like "$Version-*" })
 
@@ -151,6 +160,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "regolith install complete." -ForegroundColor Green
 
 Write-Host "Please select a pack_icon.png file in the dialog..." -ForegroundColor Cyan
+Add-Type -AssemblyName System.Windows.Forms
 $owner = New-Object System.Windows.Forms.Form
 $owner.TopMost = $true
 $owner.WindowState = [System.Windows.Forms.FormWindowState]::Minimized
